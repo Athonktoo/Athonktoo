@@ -1,0 +1,50 @@
+<!-- Created by IT STUDENT -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: black;
+      color: lime;
+      font-family: 'Courier New', monospace;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #output {
+      white-space: pre-wrap;
+      font-size: 18px;
+      padding: 20px;
+      line-height: 1.5;
+    }
+  </style>
+  <title>Hacker Typer</title>
+</head>
+<body>
+  <div id="output"></div>
+  <script>
+    const outputDiv = document.getElementById('output');
+
+    function generateRandomCode() {
+      const characters = '!display renu,.';
+      const length = Math.floor(Math.random() * 20) + 1;
+      return Array.from({ length }, () => characters[Math.floor(Math.random() * characters.length)]).join('');
+    }
+
+    function simulateTyping() {
+      const interval = 60;
+      setInterval(() => {
+        outputDiv.innerHTML += generateRandomCode() + '\n';
+        outputDiv.scrollTop = outputDiv.scrollHeight;
+      }, interval);
+    }
+
+    simulateTyping();
+  </script>
+</body>
+</html>
